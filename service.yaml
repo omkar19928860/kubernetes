@@ -1,0 +1,71 @@
+# AddTask Microservice Service (ClusterIP)
+apiVersion: v1
+kind: Service
+metadata:
+  name: addtask-service
+  namespace: todo-microservices
+  labels:
+    app: addtask-microservice
+spec:
+  type: ClusterIP
+  ports:
+  - port: 5000
+    targetPort: 5000
+    protocol: TCP
+    name: http
+  selector:
+    app: addtask-microservice
+---
+# DeleteTask Microservice Service (ClusterIP)
+apiVersion: v1
+kind: Service
+metadata:
+  name: deletetask-service
+  namespace: todo-microservices
+  labels:
+    app: deletetask-microservice
+spec:
+  type: ClusterIP
+  ports:
+  - port: 5000
+    targetPort: 5000
+    protocol: TCP
+    name: http
+  selector:
+    app: deletetask-microservice
+---
+# GetTasks Microservice Service (ClusterIP)
+apiVersion: v1
+kind: Service
+metadata:
+  name: gettasks-service
+  namespace: todo-microservices
+  labels:
+    app: gettasks-microservice
+spec:
+  type: ClusterIP
+  ports:
+  - port: 5000
+    targetPort: 5000
+    protocol: TCP
+    name: http
+  selector:
+    app: gettasks-microservice
+---
+# MicroTodoUI Frontend Service (LoadBalancer - External Access)
+apiVersion: v1
+kind: Service
+metadata:
+  name: microtodo-ui-service
+  namespace: todo-microservices
+  labels:
+    app: microtodo-ui
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+    name: http
+  selector:
+    app: microtodo-ui
