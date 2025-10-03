@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: addtask-microservice
-        image: acrmicroservices2024.azurecr.io/addtask-microservice:v1.2
+        image: acrmicroservices2024.azurecr.io/addtask:v1.4
         ports:
         - containerPort: 5000
         env:
@@ -60,7 +60,7 @@ spec:
     spec:
       containers:
       - name: deletetask-microservice
-        image: acrmicroservices2024.azurecr.io/deletetask-microservice:v1.2
+        image: acrmicroservices2024.azurecr.io/deletetask:v1.4
         ports:
         - containerPort: 5000
         env:
@@ -96,7 +96,7 @@ spec:
     spec:
       containers:
       - name: gettasks-microservice
-        image: acrmicroservices2024.azurecr.io/gettasks-microservice:v1.2
+        image: acrmicroservices2024.azurecr.io/gettasks:v1.4
         ports:
         - containerPort: 5000
         env:
