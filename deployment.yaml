@@ -13,7 +13,7 @@ metadata:
   labels:
     app: addtask-microservice
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: addtask-microservice
@@ -49,7 +49,7 @@ metadata:
   labels:
     app: deletetask-microservice
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: deletetask-microservice
@@ -85,7 +85,7 @@ metadata:
   labels:
     app: gettasks-microservice
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: gettasks-microservice
@@ -121,7 +121,7 @@ metadata:
   labels:
     app: microtodo-ui
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: microtodo-ui
