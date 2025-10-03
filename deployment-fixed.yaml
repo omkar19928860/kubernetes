@@ -1,13 +1,6 @@
+# Namespace for all microservices
 apiVersion: v1
-kind: Namesp        env:
-        - name: PORT
-          value: "5001"
-        - n        env:
-        - name: PORT
-          value: "5002"
-        - name: CONNECTION_STRING
-          value: "Driver={ODBC Driver 17 for SQL Server};Server=localhost;Database=TodoDB;Trusted_Conneme: CONNECTION_STRING
-          value: "Driver={ODBC Driver 17 for SQL Server};Server=localhost;Database=TodoDB;Trusted_Connection=ytion=yes;"s;"
+kind: Namespace
 metadata:
   name: todo-microservices
 ---
@@ -37,6 +30,8 @@ spec:
         env:
         - name: PORT
           value: "5000"
+        - name: CONNECTION_STRING
+          value: "DRIVER={SQLite3 ODBC Driver};DATABASE=/tmp/todo.db"
         resources:
           requests:
             memory: "128Mi"
@@ -72,7 +67,7 @@ spec:
         - name: PORT
           value: "5000"
         - name: CONNECTION_STRING
-          value: "Driver={ODBC Driver 17 for SQL Server};Server=localhost;Database=TodoDB;Trusted_Connection=yes;"
+          value: "DRIVER={SQLite3 ODBC Driver};DATABASE=/tmp/todo.db"
         resources:
           requests:
             memory: "128Mi"
@@ -108,7 +103,7 @@ spec:
         - name: PORT
           value: "5000"
         - name: CONNECTION_STRING
-          value: "Driver={ODBC Driver 17 for SQL Server};Server=localhost;Database=TodoDB;Trusted_Connection=yes;"
+          value: "DRIVER={SQLite3 ODBC Driver};DATABASE=/tmp/todo.db"
         resources:
           requests:
             memory: "128Mi"
@@ -137,13 +132,13 @@ spec:
     spec:
       containers:
       - name: microtodo-ui
-        image: acrmicroservices2024.azurecr.io/microservices:microtodo-ui-v1.0
+        image: acrmicroservices2024.azurecr.io/microtodo-ui:v1.0
         ports:
         - containerPort: 80
         resources:
           requests:
-            memory: "64Mi"
-            cpu: "50m"
-          limits:
             memory: "128Mi"
             cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
